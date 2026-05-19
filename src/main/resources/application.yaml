@@ -305,7 +305,7 @@ hapi:
     # mass_ingestion_mode_enabled: false
     # auto_version_reference_at_paths: Device.patient, Device.location, Device.parent, DeviceMetric.parent, DeviceMetric.source, Observation.device, Observation.subject
     # client_id_strategy: ALPHANUMERIC
-    # server_id_strategy: SEQUENTIAL_NUMERIC
+    server_id_strategy: UUID
     # enforce_referential_integrity_on_delete: false
     # enforce_referential_integrity_on_write: false
     # etag_support_enabled: true
@@ -356,13 +356,13 @@ hapi:
     # -------------------------------------------------------------------------------
     # J. Partitioning & Multitenancy
     # -------------------------------------------------------------------------------
-    # partitioning:
-    #   allow_references_across_partitions: false
-    #   partitioning_include_in_search_hashes: false
-    #   default_partition_id: 0
-    # database_partition_mode_enabled: true
-    # patient_id_partitioning_mode: true
-    # request_tenant_partitioning_mode: false
+    partitioning:
+      database_partition_mode_enabled: true
+      request_tenant_partitioning_mode: true
+      patient_id_partitioning_mode: false
+      default_partition_id: 0
+      allow_references_across_partitions: false
+      partitioning_include_in_search_hashes: false
 
     # -------------------------------------------------------------------------------
     # K. CORS
